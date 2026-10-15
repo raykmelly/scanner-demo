@@ -10,10 +10,19 @@ public class ScannerDemo {
         Scanner scanner = new Scanner(System.in);
 
         // Using print to ask the user a question
-        System.out.println("Please enter your name: ");
+        System.out.println("Enter your first name: ");
 
         // Get answer / input from the user
         // Tells the computer to read the next line for what the user typed
-        String name = scanner.nextLine();
+        String firstname = scanner.nextLine();
+
+        // Ask the user for their last name
+        System.out.println("Enter your last name:");
+
+        // Capture the users input (last name)
+        String lastname = scanner.nextLine();
+
+        // Print out what the name of the user
+        System.out.printf("Your name is %s %s.%n",firstname,lastname);
     }
 }
