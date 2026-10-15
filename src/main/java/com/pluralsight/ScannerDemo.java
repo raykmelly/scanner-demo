@@ -9,6 +9,16 @@ public class ScannerDemo {
         // We can use this scanner multiple times to get input
         Scanner scanner = new Scanner(System.in);
 
+        // KNOWN ISSUE: When changing your scanner from an int input to a string
+        // input, typing the "enter" key skips the string input.
+
+        // Example (Get a year from the user)
+        System.out.println("Enter what year it is: ");
+        int year = scanner.nextInt();
+
+        // The fix is: use scanner.newLine(); to eat the "enter" from the scanner.nextInt();
+        scanner.nextLine();
+
         // Using print to ask the user a question
         System.out.println("Enter your first name: ");
 
@@ -22,7 +32,17 @@ public class ScannerDemo {
         // Capture the users input (last name)
         String lastname = scanner.nextLine();
 
-        // Print out what the name of the user
-        System.out.printf("Your name is %s %s.%n",firstname,lastname);
+        // Ask the user for their lucky number
+        System.out.println("Enter your lucky number: ");
+
+        // Collect / store the lucky number
+        // This is different because we used "scanner.nextInt();" It matters because
+        // When the input from user changes the type of ".next[type]" changes
+        int luckyNumber = scanner.nextInt();
+
+        // Print out all the information from the user
+        System.out.printf(
+                "Your name is %s %s. The year is %d. Your lucky number is: %d.%n",
+                firstname,lastname,year,luckyNumber);
     }
 }
